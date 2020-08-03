@@ -8,6 +8,11 @@ public class NumberSum {
     static int sumNumbers[] = new int[3];
     public static void main(String args[]) {
 
+        /*
+            Finds n set of numbers that sum up to x
+            I saw an iterative solution.
+         */
+
         //Runs in O(n3)?  Maybe sorting the numbers
         //will reduce the search complexity at the base case?
 
