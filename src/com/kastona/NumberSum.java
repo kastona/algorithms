@@ -17,8 +17,9 @@ package com.kastona;
 
 public class NumberSum {
 
+    static int count = 0;
     //array of numbers
-    private static int[] numbers = {4, 6, 2, 9, 12, 25};
+    private static int[] numbers = {6, 50, 2399, 53, 333, 293838, 8333, 3433, 75390495, 93838384, 38347574, 298383, 348374, 333, 3234, 343, 234243, 234,23432, 343,343,3483, 100, 234, 3883, 334, 333, 9298, 3343, 3332, 543, 33746, 9, 12, 25, 4, 2};
 
     //holds our solution numbers
     private static int[] solutionNumbers;
@@ -38,10 +39,13 @@ public class NumberSum {
             }
         }
 
+        System.out.println(count);
+
 
     }
 
     private static boolean findSumNumbers(int sum, int n) {
+        count++;
         if (n == 1) {
             for (int number : numbers) {
                 if (number == sum) {
