@@ -3,43 +3,49 @@ package com.kastona;
          /*
             Finds n set of numbers present in an array that sum up to x
             I saw an iterative solution.
+
+           Given [2,5,8,3] and x = 10, n = 2, the solution will return [2,8] as 2 (n)  numbers in the array
+           that sum up to 10 (x)
+
+           given [4,6,2,9,12,25], x = 31, n = 3,
+           solution produced will be [25, 4, 2]
          */
 
-        //Runs in O(n3)?  Maybe sorting the numbers
-            //will reduce the search complexity at the base case?
-
+//Runs in O(n3)?  Maybe sorting the numbers
+//will reduce the search complexity at the base case?
 
 
 public class NumberSum {
 
     //array of numbers
-    static int numbers[] = {4, 3,4,8, 3, 8, 10};
+    private static int[] numbers = {4, 6, 2, 9, 12, 25};
 
     //holds our solution numbers
-    static int sumNumbers[];
-    public static void main(String args[]) {
+    private static int[] solutionNumbers;
+
+    public static void main(String[] args) {
 
         int n = 3;
-        sumNumbers = new int[n];
+        int x = 31;
+        solutionNumbers = new int[n];
 
 
-        if(!findSumNumbers(20, n)) {
+        if (!findSumNumbers(x, n)) {
             System.out.println("Couldn't find such pairs!");
-        }else {
-            for(int number: sumNumbers) {
+        } else {
+            for (int number : solutionNumbers) {
                 System.out.print(number + " ");
             }
         }
 
 
-
     }
 
-    public static boolean findSumNumbers(int sum, int n) {
-        if(n == 1) {
-            for(int i = 0; i < numbers.length; i++) {
-                if(numbers[i] == sum) {
-                    sumNumbers[n-1] = sum;
+    private static boolean findSumNumbers(int sum, int n) {
+        if (n == 1) {
+            for (int number : numbers) {
+                if (number == sum) {
+                    solutionNumbers[0] = sum;
                     return true;
                 }
             }
@@ -47,10 +53,9 @@ public class NumberSum {
         }
 
 
-        for (int i = 0; i < numbers.length; i++) {
-            int num = numbers[i];
-            if(findSumNumbers(sum-num, n-1)) {
-                sumNumbers[n-1] = num;
+        for (int num : numbers) {
+            if (findSumNumbers(sum - num, n - 1)) {
+                solutionNumbers[n - 1] = num;
                 return true;
             }
         }
