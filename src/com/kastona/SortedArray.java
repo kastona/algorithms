@@ -1,6 +1,7 @@
 package com.kastona;
 
 public class SortedArray {
+    //Checks if an array is sorted using recursion
 
     public static void main(String[] args) {
         int[] array = {2,3,5,7};
@@ -8,7 +9,7 @@ public class SortedArray {
     }
 
     private static boolean arraySorted(int[] array, int position) {
-        if(position == array.length-1) {
+        if(position == 1) {
             return array[position] >= array[position-1];
         }
 
